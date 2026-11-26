@@ -1,3 +1,15 @@
+// ==UserScript==
+// @name         ꧁ঔৣ☬₭łⱠⱠɆⱤ☬ঔৣ꧂ Hub
+// @namespace    http://tampermonkey.net/
+// @version      36.67
+// @description  Auto Attack + Flick Attack + Chase + ESP + Instant/Slow Respawn + Cooldown Dodge + Auto Sprint + visuals + themes + custom cursor.
+// @author       ogroblox
+/* eslint-disable */
+// @match        https://evowars.io/*
+// @run-at       document-start
+// @grant        none
+// ==/UserScript==
+
 "use strict";
 
 var i7c = 3176551755;
