@@ -1,3 +1,13 @@
+// ==UserScript==
+// @name         EvoWars.io - evobot-v14.5 (KOAX Atomic Strike - Cleaned)
+// @version      14.5-Atomic-Fast
+// @description  Readable reconstruction; original runtime behavior and network protocol preserved
+// @author       speed
+// @match        *://evowars.io/*
+// @run-at       document-start
+// @grant        none
+// ==/UserScript==
+
 "use strict";
 
 var a54 = 1498885310;
