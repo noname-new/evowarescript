@@ -10,1349 +10,189 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-"use strict";
+(() => {
+    "use strict";
 
-var uDG = 35277528;
-function u7c(d, x) {
-  var r = '';
-  var i;
-  var b;
-  var pk;
-  for (i = 0; i < d.length; ++i) {
-    b = d[i];
-    pk = Math.imul(uDG ^ x, 73244475) + i & 255;
-    b = b ^ 203 + pk & 255;
-    b = (b << 4 | b >>> 4) & 255;
-    b = (b >>> 3 | b << 5) & 255;
-    b = (b << 4 | b >>> 4) & 255;
-    r += String.fromCharCode(b);
-  }
-  return r;
-}
-var Cx8 = [[170, 149, 134, 189, 164, 227, 10, 177, 154, 215, 238, 213, 60, 235, 170, 193, 232, 119, 174, 5, 236, 211, 218], [71, 86, 195, 16, 185], [128, 187, 72, 223, 62], [205, 78, 237, 108, 91], [246, 195, 226, 51, 224], [51, 200, 63, 150, 221], [124, 141, 54, 107, 120], [185, 162, 25, 96, 47], [50, 31, 44, 221, 116], [127, 84, 81, 66, 241], [152, 40, 136, 119, 182, 244, 181, 242, 160, 251, 178, 182, 239], [165, 198, 69, 220, 201, 10, 227, 49, 230, 127, 196, 237, 187], [189, 163, 218, 217, 208, 15, 172, 165, 180, 171, 154, 41, 40, 181, 140], [200, 48, 247, 100, 125, 180, 163, 219, 16, 74, 39, 143, 164], [39, 141, 165, 145, 74, 120, 89, 87, 135, 140, 124, 19, 123], [50, 82, 153, 16, 55, 246, 53, 94, 123, 106, 1, 0, 101], [57, 151, 238, 69, 172, 91, 194, 235, 240, 151, 206, 197, 5], [13, 100, 91, 66, 9, 40, 87], [106, 72, 64, 125, 214, 44, 84, 67, 67, 193, 9, 7], [167, 62, 229, 140, 59, 210, 225, 232], [156, 89, 98, 73, 96], [105, 32, 127, 54, 173, 76], [54, 237, 44, 91, 98, 217], [251, 146, 209, 168, 159, 38], [144, 175, 158, 69, 124, 43], [229, 76, 83, 18, 75, 208, 7, 158, 101, 78, 123, 146, 73, 120, 127, 118, 125, 116], [42, 241, 160, 175, 182, 205, 244, 163, 170], [111, 44, 165, 180, 187]];
-var vwf = '5KgqgPEdY4TntG4vA_VBj9379yuH01IxZR0FuZNUJvFjEOYCZPE5ON_vJbNRG7Wvh0$zvusBtHpOd02Gr5gNLUX0F_TMIYvaALlfVsV2$OLlpCBlT84Ynl$e5vaDadBLIxwK_RHs6MF3qii8es';
-var S3O = [];
-var vGL = 'a04eofy7y6nbIa3HopIwgwZJ8Mz3nXi';
-function Olg(i) {
-  return S3O[i] || (S3O[i] = u7c(Cx8[i], i));
-}
-var y7S = Math.imul;
-var SX8 = Symbol();
-var qJq = Object.prototype.hasOwnProperty;
-var ezm = {};
-var TOr = [859330873, 1413763687, 2033480056, 1748201271, 896414054, 1969382991, 1514299222, 1231242313, 1701860195, 1632252011, 2050320234, 1328633171, 1797550666, 1815556965, 2034709811, 843210580, 896021849, 1415800932, 1398896760, 1598384952, 1498898808, 1246048585, 943086178, 812860489];
-var XYX = 'E$qj$utSYeBV0I_2NXm1rjwKvAblWLEY52j8aWf8z$jHgawLZtCiPTdsajm_dMLGnAxvZ1LQlOUYOfLdepLfk$7t_C46Urdevb10mCuIpXLgEFT6VtNX8_SeIZ_DB4Tch6MMZkl_zThupV2I8PJKC28zW6Te9g$svZv1iLbPnX0kgrL0U14RRSdEPpHsc1RL4bMSpyo$ehrv3LSnghrGemr4hVaGUrBhHyDrCD5iUsfcRSXB$ppAK8xdb4kdjAhsOQN5RbJ9WMab92ZS967Oluty86zbJmHiMK$i14vqVqQ3a1xGD4wOjTQsm95lSpdhs1sV5bshOfrPTvaWlku4eDZUsb1VbWGlK7tOdUKye6yFw3Jl7DmsDGaVUKe0n0DH72vhLPvkCAWkBr9bVk4$uZCwQAX26TE_WEKoS$C4Z9mrwt1gOVPJTAKiFkrbCMs0yWlc6Bwvm8n9x1aAepSfa_sLSFv_3dXhIin6wnVCuaBmWGh3S6h6_olQd2Unjl_ZfqpjKVFWv89$TLMOiRoMLABzMiy5KL$lEpJKZ1079dfU$ukPtmtDJMfTnymS8GbA32_aKzXFhHvFLxABgafOv8IhlPXEPT7KBUYN22rwVPjwm_Vn7VHGwLSvOp6bFUg8CDY_GZnVmmpg2HMcKqqpRy91SC0LqsK4Qwlmg0A$pZGt1TZietKr0_7fzMMallMEMRVL6iN4w_FwjpL9NNHAUaG2BTf63em3Q6zD1fYN7dcAZLp_WrBghX1OrRsJfO3_qCLMTGIioMmGfjFwlOELtsAl7maXD_nYk2b$tbpI729z8fefHr3mgusZVuPsiT6FyT2';
-var WfA = typeof globalThis !== Olg(26) ? globalThis : typeof window !== Olg(26) ? window : typeof global !== Olg(26) ? global : typeof self !== Olg(26) ? self : {};
-var z0N = 'nxlCfdlYyMeqjIuHVbQ1HOLYfa04e';
-var jYD = 'ofy7y6nbIa3HopIwgwZJ8Mz3nXi';
-var K3i = Object.create(null);
-var X2l = '38u9TDRgy48xh3o75n1wTDq0JJWVLIMieK2lmKaG6TrFZLXkj1MmZ4MB7T8vY_DxhX';
-var y34 = function (v) {
-  if (typeof v === Olg(22)) {
-    v = [v];
-  }
-  var s = '';
-  var i;
-  var n;
-  for (i = 0; i < v.length; i++) {
-    n = v[i];
-    s += String.fromCharCode(n >>> 24 & 255, n >>> 16 & 255, n >>> 8 & 255, n & 255);
-  }
-  return s;
-};
-var Xav = 'xArsvlrmMFLbQz$9zg0GxeVeGhBxXLZNpVzdUKthCFzyvp3nNShOUIXS65DTiUCCLZsPxEixBpfrF7REZF36VVjgflTUgFqfW3dK04qoEF_njU3O52JGEGkxfmQXdvX_d9kM641o0XJnxVsgbdvJVHX$duoqFcYST';
-var VU9 = Olg(11);
-var H4b = 'dwkyZ2hi72xVWse0XMJerx4s$uHCFO$3laATN4JVH5coco0IW2xZ5wsCl_5kVUSEiQA7TWm43otV_zyc8wBQbdPzKpRUOhn48UrjKo9g2VqGz5knxMP4BpadRvi2He6BBZMaVbdPKz80IgeHFJsp7VSse5L6CWrcDjVKQPopvZS3Ox';
-var B45 = Olg(13);
-var N8j = Olg(10);
-var ZWl = Olg(18);
-var Hoh = '38u9TXRky4Cxh3o75n8T_7XBn7M';
-var GjEX = Olg(14);
-var a5S = GjEX + VU9 + B45 + N8j + ZWl;
-var a5SR = {};
-for (var k = 0; k < a5S.length; k++) {
-  a5SR[a5S.charCodeAt(k)] = k;
-}
-;
-var bgD = 'Z7vzVLA7el2agfpdUYA0eR4_t1cSaW5';
-var vGz = '38u9TXRky4Cxh3o75n8G_oXB67MV5ADaSL8vx21YQjmoWaSDuqzMX';
-var T2r = '7uB749WoE6FtB9odqXpB5jMqGsoRNbUMuyhtfJqewBu5MIck_pDpVnFx8WhlP6ilSyn6fgq9orE2YQb6X3MXYfvVHnCkgBMUWpjcQH2EMbsVNVSE_vzgjVDIi$cSJsao$uAiqOF9V5q9Di';
-var b4L = 'V5ADaSL8vx21YQjmoWaSDuqzMXNu1y';
-var HuZ = 'OE5brO$vrWEHGChDxrBPoDp1hxdNv862yCWgIm1JFMiaq2cTDSrgPwDqoeCopIhdfrNnI21so';
-function ez4(str) {
-  var T = a5SR;
-  var n = str.length;
-  var out = new Uint8Array((n * 3 >> 2) + 3);
-  var j = 0;
-  for (var i = 0; i < n; i += 4) {
-    var a = T[str.charCodeAt(i)] | 0;
-    var b = T[str.charCodeAt(i + 1)] | 0;
-    var c = T[str.charCodeAt(i + 2)] | 0;
-    var d = T[str.charCodeAt(i + 3)] | 0;
-    out[j++] = a << 2 | b >> 4;
-    if (i + 2 < n) {
-      out[j++] = (b & 15) << 4 | c >> 2;
-    }
-    if (i + 3 < n) {
-      out[j++] = (c & 3) << 6 | d;
-    }
-  }
-  return out.subarray(0, j);
-}
-function ylc() {
-  var h = 3227757405 ^ 2673144450;
-  h ^= Array.prototype.reduce.length << 24;
-  h ^= String.prototype.charCodeAt.length << 20;
-  h ^= Math.floor.length << 16;
-  h ^= Object.keys.length << 12;
-  h ^= JSON.stringify.length << 8;
-  h ^= parseInt.length << 4;
-  h = (h ^ h >>> 16) * (2016957523 - 1943713048 >>> 0);
-  h = (h ^ h >>> 13) * (554063370 ^ 4060722583 ^ 3612507302);
-  h = h ^ h >>> 16;
-  return h >>> 0;
-}
-function uDi(data, key) {
-  var h = 3607317985 ^ 1444925476;
-  for (var i = 0; i < key.length; i++) {
-    h = y7S(h ^ key.charCodeAt(i), 345673567 - 328895948 >>> 0);
-  }
-  h = h >>> 0;
-  var out = new Uint8Array(data.length);
-  for (i = 0; i < data.length; i++) {
-    h = y7S(h, 468522206 ^ 2830331579 ^ 3007781992) + (662140581 ^ 454657530) >>> 0;
-    out[i] = data[i] ^ h >>> 16 & 255;
-  }
-  return out;
-}
-(function ChI() {
-  var iLg = 0;
-  var elG = 0;
-  function CTQ() {
-    iLg = iLg + 1;
-    if (iLg <= 2) {
-      try {
-        var ONs = Object.keys(ezm);
-        for (var W3w = 0; W3w < ONs.length; W3w = W3w + 1) {
-          var ebS = ezm[ONs[W3w]];
-          if (ebS && ebS.i) {
-            for (var WbC = 0; WbC < ebS.i.length; WbC = WbC + 2) {
-              ebS.i[WbC] = ebS.i[WbC] + iLg * 7 & 65535;
-            }
-          }
+    const scripts = {
+        killer: {
+            name: "KILLER Hub",
+            url: "https://raw.githubusercontent.com/noname-new/evowarescript/refs/heads/main/killer_obf.js"
+        },
+        v14: {
+            name: "EvoWars v14.5",
+            url: "https://raw.githubusercontent.com/noname-new/evowarescript/refs/heads/main/EvoWars_v14_5_obf.js"
         }
-      } catch (_) {}
-    } else {
-      if (iLg <= 4) {
-        try {
-          for (var CLK in WNk) {
-            delete WNk[CLK];
-          }
-        } catch (_) {}
-        try {
-          var ONs = Object.keys(ezm);
-          for (var W3w = 0; W3w < ONs.length; W3w = W3w + 1) {
-            var ebS = ezm[ONs[W3w]];
-            if (ebS) {
-              ebS.c = [];
-            }
-          }
-        } catch (_) {}
-      } else {
-        try {
-          var ONs = Object.keys(ezm);
-          for (var W3w = 0; W3w < ONs.length; W3w = W3w + 1) {
-            var ebS = ezm[ONs[W3w]];
-            if (ebS) {
-              ebS.i = [];
-              ebS.c = [];
-            }
-          }
-        } catch (_) {}
-        try {
-          for (var CLK in WNk) {
-            delete WNk[CLK];
-          }
-        } catch (_) {}
-        while (true) {
-          iLg = iLg + 1;
-        }
-      }
-    }
-  }
-  function u1s() {
-    try {
-      var OHE = Olg(16);
-      var ibo = [Object.keys, Object.defineProperty, Array.prototype.push, Array.prototype.slice, JSON.stringify];
-      for (var qdY = 0; qdY < ibo.length; qdY = qdY + 1) {
-        var yx2 = Function.prototype.toString.call(ibo[qdY]);
-        if (yx2.indexOf(OHE) === -1) {
-          return true;
-        }
-      }
-    } catch (_) {}
-    return false;
-  }
-  function Ov8() {
-    try {
-      var mb4 = new Error().stack || '';
-      if (/--inspect|--debug/i.test(mb4)) {
-        return true;
-      }
-    } catch (_) {}
-    if (typeof process !== Olg(26)) {
-      try {
-        if (process.execArgv) {
-          for (var qdY = 0; qdY < process.execArgv.length; qdY = qdY + 1) {
-            if (/--inspect|--debug/.test(process.execArgv[qdY])) {
-              return true;
-            }
-          }
-        }
-      } catch (_) {}
-    }
-    return false;
-  }
-  var yjA = ChI.toString();
-  var CjE = 2166136261;
-  for (var KFM = 0; KFM < yjA.length; KFM = KFM + 1) {
-    CjE = ((CjE ^ yjA.charCodeAt(KFM)) >>> 0) * 16777619 >>> 0;
-  }
-  function C7s() {
-    var a1y = ChI.toString();
-    var ij0 = 2166136261;
-    for (var GpQ = 0; GpQ < a1y.length; GpQ = GpQ + 1) {
-      ij0 = ((ij0 ^ a1y.charCodeAt(GpQ)) >>> 0) * 16777619 >>> 0;
-    }
-    return ij0 !== CjE;
-  }
-  var a7i = [u1s, Ov8, C7s];
-  function GfQ() {
-    var Gzw = 2 + (Math.random() * 2 | 0);
-    var y3o = false;
-    for (var qdY = 0; qdY < Gzw; qdY = qdY + 1) {
-      var Wpm = Math.random() * a7i.length | 0;
-      try {
-        if (a7i[Wpm]()) {
-          y3o = true;
-          break;
-        }
-      } catch (_) {}
-    }
-    if (y3o) {
-      elG = elG + 1;
-      if (elG >= 3) {
-        CTQ();
-      }
-    } else {
-      elG = 0;
-    }
-    if (iLg < 5) {
-      var OjW = 2000 + (Math.random() * 5000 | 0);
-      var WN8 = setTimeout(GfQ, OjW);
-      if (typeof WN8 === Olg(23) && WN8.unref) {
-        WN8.unref();
-      }
-    }
-  }
-  var ino = setTimeout(function () {
-    GfQ();
-  }, 500 + (Math.random() * 1500 | 0));
-  if (typeof ino === Olg(23) && ino.unref) {
-    ino.unref();
-  }
-})();
-function SrM(bytes) {
-  var evI = {
-    yj4: new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength),
-    qdu: 0,
-    CFg() {
-      return this.yj4.getUint8(this.qdu++);
-    },
-    u9o() {
-      var x = this.yj4.getUint16(this.qdu, true);
-      this.qdu += 2;
-      return x;
-    },
-    CVu() {
-      var x = this.yj4.getUint32(this.qdu, true);
-      this.qdu += 4;
-      return x;
-    },
-    Khs() {
-      var x = this.yj4.getInt32(this.qdu, true);
-      this.qdu += 4;
-      return x;
-    },
-    W1S() {
-      var x = this.yj4.getFloat64(this.qdu, true);
-      this.qdu += 8;
-      return x;
-    },
-    GHu() {
-      var n = this.CVu();
-      var a = [];
-      for (var i = 0; i < n; i++) {
-        a.push(this.CFg());
-      }
-      return String.fromCharCode.apply(null, a);
-    }
-  };
-  evI.CFg();
-  var aJ0 = evI.u9o();
-  var GBw = evI.u9o();
-  var Wzo = evI.u9o();
-  var eZ2 = evI.CVu();
-  var Cjo = [];
-  for (var i = 0; i < eZ2; i++) {
-    var mBM = evI.CFg();
-    switch (mBM) {
-      case 0:
-        {
-          Cjo.push(null);
-          break;
-        }
-      case 1:
-        {
-          Cjo.push(void 0);
-          break;
-        }
-      case 2:
-        {
-          Cjo.push(false);
-          break;
-        }
-      case 3:
-        {
-          Cjo.push(true);
-          break;
-        }
-      case 4:
-        {
-          Cjo.push(evI.yj4.getInt8(evI.qdu));
-          evI.qdu += 1;
-          break;
-        }
-      case 5:
-        {
-          Cjo.push(evI.yj4.getInt16(evI.qdu, true));
-          evI.qdu += 2;
-          break;
-        }
-      case 6:
-        {
-          Cjo.push(evI.Khs());
-          break;
-        }
-      case 7:
-        {
-          Cjo.push(evI.W1S());
-          break;
-        }
-      case 8:
-        {
-          Cjo.push(BigInt(evI.GHu()));
-          break;
-        }
-      case 9:
-        {
-          {
-            var p = evI.GHu();
-            var f = evI.GHu();
-            Cjo.push(new RegExp(p, f));
-            break;
-          }
-        }
-      case 11:
-        {
-          {
-            var i3Q = evI.u9o();
-            var efc = [];
-            for (var yta = 0; yta < i3Q; yta++) {
-              efc.push(evI.u9o());
-            }
-            Cjo.push(efc);
-            break;
-          }
-        }
-      default:
-        {
-          Cjo.push(evI.GHu());
-          break;
-        }
-    }
-  }
-  var iXu = evI.CVu();
-  var i10 = new Int32Array(iXu * 2);
-  for (var i = 0; i < iXu; i++) {
-    i10[i * 2] = evI.u9o();
-    i10[i * 2 + 1] = evI.Khs();
-  }
-  var S5m = evI.CVu();
-  for (var i = 0; i < S5m; i++) {
-    evI.CVu();
-    evI.CVu();
-  }
-  var SjE = evI.CVu();
-  for (var i = 0; i < SjE; i++) {
-    evI.CVu();
-    evI.CVu();
-    evI.Khs();
-    evI.Khs();
-  }
-  var ypu = evI.CVu();
-  var uHk = {};
-  for (var i = 0; i < ypu; i++) {
-    uHk[evI.CVu()] = evI.CVu();
-  }
-  evI.Khs();
-  return {
-    c: Cjo,
-    i: i10,
-    r: Wzo,
-    sl: 0,
-    p: GBw,
-    g: !!(aJ0 & 1),
-    s: !!(aJ0 & 2),
-    st: !!(aJ0 & 4),
-    a: !!(aJ0 & 8),
-    bl: uHk
-  };
-}
-var yLU = [26593, 9216, 44815, 28677, 43326, 56457, 33717, 58254, 50579, 27162, 54709, 59635, 43884, 4608, 38273, 22544, 37866, 19112, 27871, 2071, 38959, 36651, 17261, 62787, 15710, 45609, 34553, 54955, 49778, 43566, 40477, 51973, 29441, 31345, 8386, 3956, 2689, 38988, 35454, 20127, 11527, 25838, 47506, 18362, 29591, 42628, 27851, 5172, 9987, 20600, 55941, 24664, 63116, 40837, 51036, 3393, 5930, 47386, 27773, 4574, 41700, 11714, 9846, 57661, 10102, 54189, 25214, 2977, 62945, 41079, 26829, 30316, 31445, 27054, 39672, 63373, 49092, 22767, 61227, 47806, 54211, 50339, 60004, 31930, 8614, 36059, 56179, 59479, 184, 43124, 29287, 23715, 22204, 2340, 49494, 8074, 63697, 1868, 10031, 9524, 14544, 61294, 18422, 34624, 24501, 5344, 31167, 50152, 45068, 49300, 1742, 57336, 33654, 23353, 38463, 22725, 49546, 48829, 20702, 18450, 34107, 54552, 22923, 43477, 63517, 23111, 12730, 6201, 64457, 5026, 56907, 23798, 53328, 44596, 45674, 57501, 62581, 11945, 491, 62081, 26164, 25163, 55778, 27838, 38198, 18537, 60752, 20639, 24915, 24400, 64261, 35615, 62722, 12823, 46416, 30315, 31063, 20095, 37, 46169, 942, 30987, 60208, 51976, 1083, 34193, 40629, 20347, 65176, 38096, 5432, 63363, 43993, 2747, 25137, 56017, 4216, 59915, 21404, 43871, 10433, 33682, 17219, 60444, 7496, 29601, 30626, 31353, 12397, 43302, 56355, 65401, 31020, 5510, 16666, 12348, 9916, 39108, 45335, 2959, 6409, 39542, 23638, 12041, 45461, 35519, 30751, 57498, 61548, 54135, 31918, 16947, 52817, 16259, 56295, 47089, 10096, 6973, 42654, 22086, 34853, 49962, 23511, 28365, 46044, 52857, 6118, 62382, 23633, 36997, 38399, 61567, 62109, 9523, 28022, 28081, 33897, 5822, 47983, 20554, 9160, 48886, 30534, 667, 63357, 38230, 44207, 19242, 32052, 19369, 9886, 183, 2057, 27288, 29047, 3404, 3848, 40786, 28350, 17703, 34733, 41188, 47031, 712, 68, 59352, 19398, 49062, 28873, 4945, 54590, 9686, 42788, 38522, 57635, 9255, 41057, 28604, 13610, 44882, 22236, 28473, 43207, 15637, 32425, 62492, 10118, 40097, 21909, 42078, 17455, 58374, 59308, 62173, 14558, 42372, 64849, 25968, 45271, 55500, 19187, 45853, 13182, 32660, 8330, 8169, 13644, 8210, 31751, 16360, 60953, 18983, 26182, 50986, 3236, 31673, 50507, 39443, 3521, 41559, 2802, 32440, 54092, 17696, 58895, 17512, 22265, 47747, 45806, 3006, 3668, 56971, 31187, 11382, 8241, 25247, 56026, 1399, 54956, 40126, 19767, 21452, 62521, 7429, 45238, 65475, 50020, 34552, 9371, 10244, 46113, 33791, 514, 12492, 46316, 46845, 18175, 10643, 48473, 54444, 59934, 31422, 38516, 25166, 47139, 61362, 11697, 44869, 30314, 47519, 8396, 32462, 17319, 23036, 20697, 39635, 27046, 45247, 29668, 38921, 20779, 37628, 26945, 48943, 41042, 49897, 57421, 35892, 33811, 55160, 15820, 51637, 62122, 45378, 33665, 16103, 27915, 5093, 63032, 56728, 34394, 25989, 56333, 35561, 51531, 26698, 63996, 51328, 8610, 4489, 24302, 63064, 45667, 56777, 39275, 48446, 53266, 59029, 8858, 3916, 40896, 51707, 4607, 56822, 34309, 33414, 65254, 26126, 39360, 1875, 44931, 30594, 53493, 33975, 21426, 32294, 55489, 4218, 54195, 56076, 63368, 10103, 33938, 42955, 15213, 33864, 26067, 42023, 33900, 38649, 38955, 36860, 50745, 1368, 5874, 17736, 38676, 56263, 15688, 53273, 55118, 1544, 4141, 20761, 44423, 54827, 55236, 41698, 30454, 57470, 13417, 22630, 19439, 34880, 61898, 42957, 12142, 37893, 16568, 18589, 12939, 51784, 64493, 65158, 17018, 47277, 6392, 14986, 51649, 13677, 24209, 53177, 55936, 40993, 56172, 20226, 42249, 25132, 41212, 29455, 40676, 42274, 14973, 55422, 7484, 32468, 32, 34775, 59285, 25408, 60065, 42219, 4844, 18838, 61597, 47890, 63444, 48599, 51488, 15286, 15005, 55979, 1489, 32231, 9940, 57800, 40924, 50242, 31413, 8080, 46004, 27203, 14200, 41627, 20909, 59345, 17625, 52945, 41988, 2770, 18918, 63454, 58121, 41134, 60191, 17813, 28712, 3288, 45111, 49682, 50364, 13755, 6726, 27075, 35121, 12470, 3167, 13332, 56307, 28368, 40726, 62981, 21770, 21528, 52823, 35598, 38423, 36908, 57686, 52697, 22990, 63593, 42343, 34532, 5795, 52184, 30094, 62995, 18586, 47381, 24671, 42993, 14279, 7679, 29438, 52417, 17326, 5447, 43583, 30891, 23715, 17200, 38838, 47333, 474, 11074, 53783, 2958, 46438, 3265, 10670, 48733];
-var bIj = 'bG1$U4iVdVzZfUJNRZcFYLuTpg';
-var KpG = [];
-var fGz = '04eofy7y6nbIa3HopIwgwZJ8Mz3nXi';
-var eRa = 3227757405 ^ 3829779567;
-for (var CLI = 0; CLI < yLU.length; CLI += 2) {
-  var yPU = yLU[CLI] ^ eRa & 65535;
-  var mNO = yLU[CLI + 1] ^ eRa >>> 16 & 65535;
-  KpG[yPU] = mNO;
-  eRa = (y7S(eRa ^ yPU, 2016957523 - 1943713048 >>> 0) ^ mNO) >>> 0;
-}
-var nmd = 'Nu1yZ7vzVLA7el2agfpdUYA0eR4_t1cSaW5bkP$U4iVdAJF1HKxhrqBIbsSvBSyOVrKHbbnmz';
-;
-var L45 = 'QDtX1CbEewUus2K5faQYogxy4DfiilJA94ZBdPxa16uD38S3UeWous3UjZvJRPCqUQisYRLvf$Am19gJp9hxTZaPCpN0QLmqfTlBv444et2AA6JyY4yRWHIzRzXM5DRMaZ2qP3wKNuXp1prhz28j_c2zC_9lAJAaGLWqzWGrT_Dzen6JuXqpIkW7jZyo_x4Or8yHyN_RyJozJ';
-var zod = '1cSaW5bG1$U4iVdVzZfUJNRZcFYLuTpgn';
-var yD6 = 554063370 ^ 4060722583 ^ 2046939586;
-var rSJ = 'DUQzem8medZxvsRdJvcXF7MO_fLLeVN7_4kSj8GBNinKQJRr6ddhRZvxtkFwFxTqK10_H6Uk0Ljp94OTc_MEpxouoHaFd9UkfS2iRzKFfH8BeJ3hrojqep5OIcebMDiuZXqqBZ9FU9Vc5n5EPquGPBu$Z8S7FP5vGAnqdRjMhqPkF0zDNGEirMBu1wM_rsKM3oezEM_dnsrblADZXPUY2BuggL6EYihHsLAHxkBFQB4trV4OxQTNjMeW1w$1hT77e9FmHHXPf6FQ2oPDR4I_z6LTb6BcbfphbFk$48Z8yPdwg8oIXGlbA_4D_1IG44urDzq6zflm3ZKWFrINio0CBN2Fj3RwCgHNOIa9ITeQ_itv0EGc2fiTcaCI5cbFicrQeTLtgITrOftZ9yUr8IgVzqkmNScP4uG29L2JCjE2hJjkHv4biXKz7Q9fi5Xxb$PrJg6DhGF$nhkZ_O8dzUbQEtZ45kBzyv8_G9g1pL2wcZSu2TRNNo3$kLMtheVhlTIj0u3o8zg5FQvLeM1F4zFSqGw7YdvkijFV1VzgQ1_j28zTfaXuUHOjmt5Uc4P8FnD7e7OQHBHY4VLHzMIBC1zog_bDN7cqR5xQhI_n1Xb7l8hYC_ShfkVgydYMd4bTXN4kY2fRQPXiewIswzYf7P4WZRaP$D_sKlb5BiAQeYCsF5YlO92vtgzsn_XEVDl3wqS8WFylKNfu04rdwIfYi0eye4RsSwKtFoPz7gnuKbMJNPiL2a7oetO2qBnvu0YVbq1uz101E7TD2bE8fMJTzC$evUe4xVJmcyKufmdu$E4upwPKaCrs7sYfxmYEI5CtAwqiWYLngdmBE0MwxYfm9mF2MyQ$Eb19gnoy4ixdPPVobWcXcMMF1e1K3r4fILfwRofKsafSCGGokZOouX$uLMOwpnPk35QNoddPvDwE4jo0IhdjNcMdx9bCCTyzwwHvp8TyX1d7wjDNkAiuAbh4ZoZllHbMlH72hYZztR9dT2qJ7wY7r13ZxbuDVHyEFjpz_8OzgQowbJsSoJipAHgFvbOD04bat9UZJmUn0OrJuholjwEg1YwEmQGTOZktOOPySd0XH$T1JaBHB2fppf8J3w452Sk6zvJKtUmVhP$emHzTRrAocVijWExHyfyrmCgHvRB0U0yrdhLX4ybN9IrxAhK3Tbn8EgqwOc8bSlDLCAEvTFK$4cc937R9hrcF6U2ZXU4HrlS9b5Peies5QoZGIUS8B9e_f6ZSWd3LdLo7SuCMIr3SA9oCYs3sg0VK20DGnHfIabWqD4bzTEjxkQ_$GM4wmGVA6zCjKOOHNRs_XPmj02kXRCqIhcYWYUykoL0DNWQ0gH8w4P0Nhxy6xFqNVpC8o7Hg9PxNpgyZ6C_pZd5Yy9mNqUWvT6vuC877Ga4F$6Cl58nSkTHCkmUSw07csrXreOMzBq4TR2UkFgqIlf1yi1ZuaZdfiyipvQfxWMi46Eyh1i$liOYA5Xixt73o_8No_lZa8MkM$in3TNo3oClkRzaVVCaBSTb8Z7a31CJMgRDWr1GcHG1Kg7hp42pxgiZWqs4jdx3V9NLdaFggCstbLrFAE1k6AmSzw2ezMBuftyCgwT3YDbBe9RzGrjePL1Vz6ajAidUw1n6B6s7Ys3v35tJEbUiBR9JOSbF7KH9ybF0RaoVjM_3B1fNlZlldwLa3ZHH6NnTPEq2MsdXVuLB9Ymey83Pdo08p5R0rGPX3_EGKuE3f$vF0X2GP0vNsj_oFk1m$Sszj$vbXITWci35OvOTEjT8_vDaBmQE5NuPf5nYS_tMMowf$$m3_VJELIpUoD4xRDbT2TU38KdjXSvwiN2TMiaVdaq8maJHMUtKeZFeJ$bG6JOPc$9RA_djyuj6jixzM9bakpiVTdPSz46PLpS88IHM5AzmOffA1jf8wmzyoyXxPvTr_F9J2R1HxoEzifS$oudAbqXRr7fzTYjP3fIYGnIVl5a3bx3p_DI1dRdW__nCIFF_qLGHJVHuBbQdJaDi51BCCa8DkaBZbnHTDAb26EAvau3Esgq7ti4Ok_3BkbvDlZtRn2zeX5xLHoPdg5LcddhAs2zywZBZdqYdk0MHiYWE$B5yBh_OtPeQ_KR1fCp39LhGP_6QOb6PAsvNUmiq0lyp8GeUJY5AFj0lsgCg8W1sID1YkWcYy77hXB0t5olZ$Q0jz4fCxZS9pO9J3gDJg$zHUjoq9IegPo5Az07eVO0KiJFzlF0pXOE7_OyI0SGlU_EiVuAOdU6uA1m32cmc221cdp_rNBKQ0Gq7N9o3wD20aAkn94$LXsbUkSRzBREpbmmPAFegyYFuyheCXIVCNL5QsGAEqyWt4dp0PGwBln3c35fgbbhB5rz7SreAgerYQNJcjzY1t0kecKk82$qbDx3jTGDwWaHfHRbG_LtvS03GxwHbFfjwI1OLBLeNqEPeTIaEMnmVIg3j1SKqln0iZ0MTmpGrzKyPOvLglB$49UJdWu58$HtT63uz1bHXKvUKLzR4tLH3THS$1gKsOU8loSkyRcg8FvuqVxLWdMz8TzuS4SyAmKVcfUNzLwXyqN7$zjgP$$j7ebuud0JAZlDWVz40Z4n66kdAn39MmNbDAYsVZh16nXzrPHXjgtWqZvf9W2HAr454UFcf$CYcQImHg9dDdnqsFL2dVKNJIWsbtVFDE6p6Z8BUFKx3wa2VI7hp6$5T0XSJL$rpv7T5Z5PDQ_6ESOu5ckNmMTeuPcna7xDAqO0HCrcZ4SmC0sOA2MJ4oEXTDaMoYwNJcIIRrqz89kirjIFS44KSdtk3XCTjZpNo1LQnfnzyouRcz7sCHRt4zt9hL4e1IYL2fh6c_H3iGU2wYPms$p4OmtR2uk0SaNeMXg2$sBf$Zd_WQk9uy9WCEIqmL95SH$bt4Da87Bhzk4G8YAarWovKmbXPZBOp6_8W2JWeRWBJaACGT$1h30j$AENw_UanBZ64JXx2Hrn9CHnJc_JANt4zStmTiMcd8DYDL5lgJittXy9072zFh2qMvxayWBW0VUdAFwIeQmwypFIlYDlUYICGDmRXNo0_LKfhHQ6492AiWurTMuDV3o9TXVfwz3FE8ufS4F6EREPFwMriL3tZIhNY7FBbCZ5FSE1p9YXDlK96CQE3$MsQa0DHEE4rM2Oy4U95DIsqKwGExf3kqUyz3wDqNP684r$BIN9z2MIwvpxd3zCyUumzbKKrgiL8NeEcBZyYisBowsfSL_4yZzSKHbJIZXyYElGTzBOE6PboG1EPDpzpBXg9SsrU0IhIo31dIz0Jl128xYU3uK5j3DcNWAfFRrVH57cZswHEAOBvcNcBFtlvANpocqkIChxgjx9GdRF5UNFOnn$EONExrzBaOXb3$qCrysNg6$0N4XJCOlQR59eU6iz7mgY6seVuBHtsNExhWjV6Squd2ptfuPqgO5IdwR9y1DZ7W6sB4ZUeZb$HrozGpf10yOIqkCiDjG_zXPHFjpwe9iVz57CnZQsoB_hG4VJbXEHsEXiDHawBFWmO3bq9Oi2ThZQHyvE1KkIjnfbdzfGUq0vR8GZPFht_GcfBYpeh9LvBUuKST1SjL_qMqlGO6oqT0xqhkdrEpjNZoi3VKyZSv71x6_GcTSDY068AtCwexPuHjQB3LAtqVX2gvSvKUeTXVWJ1Gi63nmdtdxyTciFJaX1xCwdgUP8by2T4JJkHNhpceuVH4sT$jXZCE5_74Ual8CMo9t1VdRZcKMDXjMzXy0esxTigN1fs_pYle4BLvYota4YRDIfQaup$h1NoFqmuAWw8EQUM2VHJ8V391IwcOcxalFYjwsXVVqN4TJSlH$Exx5XEUiFA2D_9bET7cScR6XxIxT1AxJ4Nt_xZxee4r$i$15YRbkLI_W0OIMx5MyvvLCcMogTU6tZlZJOMXB73vU3V4RKhJ03PWDB0TK7Ai_S85fsKjQNZgwHv9lCiD1mgAu4AohKfVfaSKucst4pcAlAr6uL25qiDKdMfM82hT3gnwOQAKEqK6Xi942urFdeddDGYW7Zj8DPGFMbpYzHcUgl2kD3oV0itjajwbSBarQ999CdKY77sVHAoa7cldneoZ6aSy0bT_3Eiiepzg_HwgeNKvSZE3SEEf$eKz86NeL2SgZ0Kh3u8eebMe2MAVtEXUeBGFCC3pIk7KbH00hQN2Ukhd$YRqEjR42RlsaSLSOVMSvpxoF0tpvzSftoDDfF7d76qWy95tpC1fMU1kfPia4RzfMeZ96pbJGTfxCVEgaUSUQWrliImw0OWRxPnE_vl4VTz2IAVllcz0DPHm156ZARuqU4kagzFAiv_fMAkdw3JUvkqDUjgOhJcp199eyHNpuL16J7btO0eMEiCx5Lp_GH_INiYNhorq1mtF3fggjr2EALSsvUUEkmW_i97sJ__YXvgFTI7B2P2qs6ojR3rSuyaddmWwduMimujGT$Rg0qrBYQTF$rjSW54Q9aJNIHf8uwY87YhWjGLV0hnoTIQDvPTn7hSzyXj56f6R$wmYZZRePrMkni8JruGHrF2ctKhfrLPJ89t0VF7wcCtC5IzpswgcEYQ2vEt6QHajBCSPIG_X3lVSYIXWSE1Rdii6SEtWGRJExmMOnGz5Sd_0tArEoupoKw2qQ$kTFeJhDEPtFJY8vfm1yk3a9eoUrGWV7gRT3_iih_4o6bWVluSy4RGvzvnYXwqRknZXZ_2d0k7s6N9b8mmu2RkhYgU1iIx1a5JC4wlnZXt0RSSzYPPG2csR9KTC6sitGL4meJcb059JU65MNmYJe8osODgrY7dEFArLtY3LRJOi8i1ICBTloq_5nDgwZko2K2Y3dRSwuL6_uvAT6I32KIq6TJKslCOD_1zWJ3kDfxbzaK9siCuvFfQo_2YUYypiyifjOGpqjYr1L6WmCuhAdbMKpXsp0WgcIYcEUUkIIMSAD4LvEphYkojIX_8dg$TZ$$KMLA5ug2AiRY2AesbY5AMIMhFfusARw2tARflIqMh0mq6fn9GywG8akEFrHur5BxR6NLpVYSxYmIvUBDH6vGZhLK3UOt8bQ8DVsohkmL7uNY1K3UbfVxSjzxzvQ_Fg$XEBmOz8fxy7n2VMqPIN3wgV_rHvYv97Dd6AADPmd70hQJAyNLxh_k58K4EbZLK$hg4F2kodkecS1_gto5kjyMhFV5gqVdq8jb11jx$FY_hO0txNyBer8UBOBNqUUjB6NhOAEQFd29XznjzBPlIr99z3nYib2AVeKf4iVDIiiQsefQrGIwcGwywYrWTHzmSUWwqicgzMZqXRnI0QCSUQkBWRnG8obi50nVKjK$H_xNNOVr1e6UuAaBOnXgn20oLvVqhdpo4hWWqdUwpWfGorFf9uOoZqhYW7NjgcDJEPV9Io5Zd1p$C_H006le4vaceJ76RBdVw8a36nJmfqUUfUQmhv3_ySXIC3BTC8iBitX8sxcUF1tFikZpnlHRWna$655r65$Iz_1SfZta$0y7uUFM5_G';
-var ncJ = 'yBO1MV5ADaSL8vx21YQjmoWaSD';
-for (CLI = 0; CLI < yLU.length; CLI++) {
-  yD6 = y7S(yD6 ^ yLU[CLI], 3607317985 ^ 3590540402) >>> 0;
-}
-var T6j = 'y5VbvvP8E5PcrMGeQ$BUoHq84Ip3cc9sPCVR7UULWyx4wi';
-var jSP = 'xlCfdlYyMeqjIuHVbQ1HOLYfa';
-;
-var ml0 = {};
-var vqZ = 'x21YQjmoWaSDuqzMXNu1yZ7vzVLA7el2ag';
-var KJE = void 0;
-var XKX = [861236021, 1867665774, 1197631856, 1095381321, 1900835916, 1296712756, 1264791667, 1915761484, 1987196746, 1180190542, 1601524066, 1652044081, 829181297, 1249077060, 1114396259, 844256356, 1836346440, 2036486449, 1248282166, 1195655777, 1281448568, 962097002, 812675674];
-var DgP = '38u9TXRky4Cxh3o75n8Y_ViBn7MV5ADaSL8v';
-var fAL = 'wJCkoylK8Ge_vjHSbwUqvqmcGFXuQCWaMZZWOGkwj7aWNMrFaBLQfLTDKj';
-var niD = [859330873, 1415074388, 2036298104, 1748201271, 896422248, 1111979366, 1432447062, 1279872306, 1215325558, 1246845255, 1465141106, 1331326021, 1228371033, 1498314063, 1867007096, 963594858, 1717646135, 1698843201, 875837809, 1414879282, 1852989774, 1145140809, 1110985081, 1430550119, 859068525, 1145136946, 1665561945, 842359662, 929453382, 1865703786, 2001430114, 1934308673, 2018855255, 1515678306, 877348707, 1853058403, 1315713400, 1448556593, 1467169111, 1131558196, 1886276439, 1298745923, 1265269112, 1849762922, 1230524743, 863391334, 2050455642, 1984639088];
-var evS = [function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-  0, K1C[Sb4] = SB6.pop();
-  return;
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  yxa = Object.create(yxa);
-  return;
-}, function () {
-  if ((((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | 0) === ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) && ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | 0) === ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) ? ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | (~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) + (((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) & ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1))) : ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) + ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1))) % 2 !== 0) {
-    var _d = 0;
-    _d = (_d | 0) === _d && (1 | 0) === 1 ? 2 * (_d | 1) - (_d ^ 1) : _d + 1;
-  } else {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & 0);
-    SB6.push(SB6[SB6.length - 1]);
-    return;
-    if (uTQ < erw) {
-      0, urq = (~urq & ((4286250351 | 0) === 4286250351 && (1826797504 | 0) === 1826797504 ? (4286250351 ^ 1826797504) - 2 * (~4286250351 & 1826797504) : 4286250351 - 1826797504) >>> 0 | urq & ~(((4286250351 | 0) === 4286250351 && (1826797504 | 0) === 1826797504 ? (4286250351 ^ 1826797504) - 2 * (~4286250351 & 1826797504) : 4286250351 - 1826797504) >>> 0)) >>> 0;
-    }
-    erw = uTQ;
-  }
-}, function () {
-  if (~(~((SXA ^ 0) + (SXA & 0)) & ~1) * ~(~((SXA ^ 0) + (SXA & 0)) & ~1) % 2 !== 0) {
-    uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-    var b = SB6.pop();
-    0, SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] = (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] | 0) === SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] && (b | 0) === b ? (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] ^ b) + 2 * (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] & b) : SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] + b;
-    return;
-  } else {
-    var _d = ~(~0 & ~0);
-    void _d;
-  }
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  var b = SB6.pop();
-  SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] * b;
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-  SXA = Sb4 * 2;
-  return;
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  var IBu = SB6.pop();
-  SB6[SB6.length - 1] = SB6[SB6.length - 1] !== IBu;
-  return;
-}, function () {
-  if (((~(~SXA & ~0) | (SXA ^ 0) + (SXA & 0)) & ~(~(~SXA & ~0) & (SXA ^ 0) + (SXA & 0))) === 0) {
-    uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-    SB6.push(false);
-    return;
-    SB6.push(K3i);
-    if (SB6.pop() !== K3i) {
-      urq = (~urq & ((~468522206 & 2830331579 | 468522206 & ~2830331579 | 2194592173) & ~((~468522206 & 2830331579 | 468522206 & ~2830331579) & 2194592173)) | urq & ~((~468522206 & 2830331579 | 468522206 & ~2830331579 | 2194592173) & ~((~468522206 & 2830331579 | 468522206 & ~2830331579) & 2194592173))) >>> 0;
-    }
-  } else {
-    var _d = ~(~0 & ~0);
-    void _d;
-  }
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & 0);
-  var UbC = adI[Sb4];
-  var cfC = yxa[UbC];
-  if (cfC !== void 0) {
-    if (cfC === K3i) {
-      throw new ReferenceError(Olg(12) + UbC + Olg(0));
-    }
-    0, SB6.push(cfC);
-    return;
-  }
-  if (UbC in yxa) {
-    SB6.push(cfC);
-    return;
-  }
-  0, SB6.push(yXQ[UbC]);
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-  var G32 = SB6.pop();
-  if (e1I && e1I.length > 0) {
-    var SpW = e1I[(e1I.length | 0) === e1I.length && (1 | 0) === 1 ? (e1I.length & ~1) - (~e1I.length & 1) : e1I.length - 1];
-    if (SpW.yf8 >= 0) {
-      KTe = 1;
-      aJW = G32;
-      e1I.pop();
-      SB6.length = SpW.y9y;
-      SXA = SpW.yf8 * 2;
-      return;
-    }
-  }
-  return KJE = G32, ml0;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & ~0);
-  SB6.pop();
-  return;
-  if (uTQ < erw) {
-    urq = ((urq | (~662140581 & 3052352266 | 662140581 & ~3052352266)) & ~(urq & (~662140581 & 3052352266 | 662140581 & ~3052352266))) >>> 0;
-  }
-  erw = uTQ;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-  SB6[SB6.length - 1] = !SB6[SB6.length - 1];
-  return;
-  if (uTQ < erw) {
-    urq = ((urq | (~2997840297 & 540486662 | 2997840297 & ~540486662)) & ~(urq & (~2997840297 & 540486662 | 2997840297 & ~540486662))) >>> 0;
-  }
-  erw = uTQ;
-}, function () {
-  void 0;
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-  var Qbq = (Sb4 | 65535) ^ (Sb4 ^ 65535);
-  var IJG = ~(~(Sb4 >>> 16) | ~65535);
-  SB6.push(K1C[Qbq][adI[IJG]]);
-  return;
-  SB6.push(K3i);
-  if (SB6.pop() !== K3i) {
-    0, urq = ((urq | ((1495568612 | 0) === 1495568612 && (664003868 | 0) === 664003868 ? (1495568612 & ~664003868) - (~1495568612 & 664003868) : 1495568612 - 664003868) >>> 0) & ~(urq & ((1495568612 | 0) === 1495568612 && (664003868 | 0) === 664003868 ? (1495568612 & ~664003868) - (~1495568612 & 664003868) : 1495568612 - 664003868) >>> 0)) >>> 0;
-  }
-}, function () {
-  0, uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & 0);
-  var qVS = ~(~(Sb4 >> 16) | ~65535);
-  var yf8 = (Sb4 | 65535) ^ (Sb4 ^ 65535);
-  if (qVS === 65535) {
-    qVS = -1;
-  }
-  if (yf8 === 65535) {
-    yf8 = -1;
-  }
-  if (!e1I) {
-    e1I = [];
-  }
-  e1I.push({
-    qVS: qVS,
-    yf8: yf8,
-    y9y: SB6.length
-  });
-  return;
-  0, SB6.push(K3i);
-  if (SB6.pop() !== K3i) {
-    urq = (~urq & ((2984705649 | 2155238841) & ~(2984705649 & 2155238841)) | urq & ~((2984705649 | 2155238841) & ~(2984705649 & 2155238841))) >>> 0;
-  }
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & ~0);
-  SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] = -SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1];
-  return;
-  if (uTQ < erw) {
-    urq = (~urq & ((~812153006 & 2348203467 | 812153006 & ~2348203467 | 688292042) & ~((~812153006 & 2348203467 | 812153006 & ~2348203467) & 688292042)) | urq & ~((~812153006 & 2348203467 | 812153006 & ~2348203467 | 688292042) & ~((~812153006 & 2348203467 | 812153006 & ~2348203467) & 688292042))) >>> 0;
-  }
-  erw = uTQ;
-}, function () {
-  if (((~(~SXA & ~0) ^ 1) + (~(~SXA & ~0) & 1)) * ((~(~SXA & ~0) ^ 1) + (~(~SXA & ~0) & 1)) % 2 !== 0) {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & 0);
-    var b = SB6.pop();
-    SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] | 0) === SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] && (b | 0) === b ? (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] ^ b) - 2 * (~SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] & b) : SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] - b;
-    return;
-  } else {
-    var _d = 0;
-    _d = (_d | 0) === _d && (1 | 0) === 1 ? (_d | 1) + (_d & 1) : _d + 1;
-  }
-}, function () {
-  if (((~(~((SXA ^ 0) + (SXA & 0)) | ~1) | 0) === ~(~((SXA ^ 0) + (SXA & 0)) | ~1) && (~(~((SXA ^ 0) + (SXA & 0)) | ~1) | 0) === ~(~((SXA ^ 0) + (SXA & 0)) | ~1) ? (~(~((SXA ^ 0) + (SXA & 0)) | ~1) | ~(~((SXA ^ 0) + (SXA & 0)) | ~1)) + (~(~((SXA ^ 0) + (SXA & 0)) | ~1) & ~(~((SXA ^ 0) + (SXA & 0)) | ~1)) : ~(~((SXA ^ 0) + (SXA & 0)) | ~1) + ~(~((SXA ^ 0) + (SXA & 0)) | ~1)) % 2 !== 0) {
-    var _d = 0;
-    var _e = 1;
-    void ((_d | 0) === _d && (_e | 0) === _e ? (_d | _e) + (_d & _e) : _d + _e);
-  } else {
-    uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-    var EpA = Sb4;
-    var APa = EpA < 0;
-    if (APa) {
-      0, EpA = -EpA;
-    }
-    var st0 = new Array(EpA);
-    for (var ob6 = (EpA | 0) === EpA && (1 | 0) === 1 ? (EpA & ~1) - (~EpA & 1) : EpA - 1; ob6 >= 0; ob6--) {
-      st0[ob6] = SB6.pop();
-    }
-    if (APa) {
-      var U18 = [];
-      for (var ob6 = 0; ob6 < st0.length; ob6++) {
-        if (st0[ob6] && st0[ob6][SX8]) {
-          for (var gbO = 0; gbO < st0[ob6].length; gbO++) {
-            U18.push(st0[ob6][gbO]);
-          }
-        } else {
-          0, U18.push(st0[ob6]);
-        }
-      }
-      st0 = U18;
-    }
-    var Ipu = SB6.pop();
-    var cRc = SB6.pop();
-    0, SB6.push(cRc.apply(Ipu, st0));
-    return;
-  }
-}, function () {
-  if (~(~SXA & ~0) * ((SXA ^ 0) + (SXA & 0)) % 4 !== 2) {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & 0);
-    var EpA = Sb4;
-    var APa = EpA < 0;
-    if (APa) {
-      EpA = -EpA;
-    }
-    var st0 = new Array(EpA);
-    for (var ob6 = (EpA | 0) === EpA && (1 | 0) === 1 ? (EpA ^ 1) - 2 * (~EpA & 1) : EpA - 1; ob6 >= 0; ob6--) {
-      st0[ob6] = SB6.pop();
-    }
-    if (APa) {
-      var U18 = [];
-      for (var ob6 = 0; ob6 < st0.length; ob6++) {
-        if (!(st0[ob6] && st0[ob6][SX8])) {
-          U18.push(st0[ob6]);
-        } else {
-          for (var gbO = 0; gbO < st0[ob6].length; gbO++) {
-            U18.push(st0[ob6][gbO]);
-          }
-        }
-      }
-      st0 = U18;
-    }
-    var cRc = SB6.pop();
-    SB6.push(cRc.apply(void 0, st0));
-    return;
-    if (uTQ < erw) {
-      0, urq = (~urq & ((~888059098 & 2054302631 | 888059098 & ~2054302631 | 3691305682) & ~((~888059098 & 2054302631 | 888059098 & ~2054302631) & 3691305682)) | urq & ~((~888059098 & 2054302631 | 888059098 & ~2054302631 | 3691305682) & ~((~888059098 & 2054302631 | 888059098 & ~2054302631) & 3691305682))) >>> 0;
-    }
-    erw = uTQ;
-  } else {
-    var _d = ~(~0 & ~0);
-    void _d;
-  }
-}, function () {
-  if (((SXA ^ 0) + (SXA & 0)) * ~(~SXA & ~0) % 4 === 3) {
-    var _d = (0 ^ 0) + (0 & 0);
-    void _d;
-  } else {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & 0);
-    var oJU = SB6.pop();
-    if (Sb4 >= 0) {
-      var ITA = adI[Sb4];
-      if (typeof ITA === Olg(24)) {
-        yxa[ITA] = oJU;
-      } else {
-        K1C[Sb4] = oJU;
-      }
-    } else {
-      SB6.push(oJU);
-    }
-    return;
-  }
-}, function () {
-  if (((~(~SXA & ~0) | (SXA ^ 0) + (SXA & 0)) & ~(~(~SXA & ~0) & (SXA ^ 0) + (SXA & 0))) === 0) {
-    uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & ~0);
-    var MT2 = SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1];
-    var ELC = SB6[(SB6.length | 0) === SB6.length && (2 | 0) === 2 ? (SB6.length ^ 2) - 2 * (~SB6.length & 2) : SB6.length - 2];
-    var g18 = SB6[(SB6.length | 0) === SB6.length && (3 | 0) === 3 ? (SB6.length & ~3) - (~SB6.length & 3) : SB6.length - 3];
-    SB6[(SB6.length | 0) === SB6.length && (3 | 0) === 3 ? (SB6.length ^ 3) - 2 * (~SB6.length & 3) : SB6.length - 3] = MT2;
-    SB6[(SB6.length | 0) === SB6.length && (2 | 0) === 2 ? (SB6.length & ~2) - (~SB6.length & 2) : SB6.length - 2] = g18;
-    SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = ELC;
-    return;
-    if (uTQ < erw) {
-      urq = (~urq & ((~352614130 & 183027743 | 352614130 & ~183027743 | 2373253954) & ~((~352614130 & 183027743 | 352614130 & ~183027743) & 2373253954)) | urq & ~((~352614130 & 183027743 | 352614130 & ~183027743 | 2373253954) & ~((~352614130 & 183027743 | 352614130 & ~183027743) & 2373253954))) >>> 0;
-    }
-    erw = uTQ;
-  } else {
-    var _d = ~(~0 & ~0);
-    void _d;
-  }
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = ~SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1];
-  return;
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  SB6[SB6.length - 1] = SB6[SB6.length - 1][adI[Sb4]];
-  return;
-  if (uTQ < erw) {
-    0, urq = ((urq | (~((1412894790 | 2467145155) & ~(1412894790 & 2467145155)) & 1436741674 | (1412894790 | 2467145155) & ~(1412894790 & 2467145155) & ~1436741674)) & ~(urq & (~((1412894790 | 2467145155) & ~(1412894790 & 2467145155)) & 1436741674 | (1412894790 | 2467145155) & ~(1412894790 & 2467145155) & ~1436741674))) >>> 0;
-  }
-  erw = uTQ;
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  if (!SB6.pop()) {
-    SXA = Sb4 * 2;
-  }
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-  SB6.pop();
-  return;
-  if (uTQ < erw) {
-    urq = ((urq | ((3796804031 | 0) === 3796804031 && (1337351184 | 0) === 1337351184 ? (3796804031 & ~1337351184) - (~3796804031 & 1337351184) : 3796804031 - 1337351184) >>> 0) & ~(urq & ((3796804031 | 0) === 3796804031 && (1337351184 | 0) === 1337351184 ? (3796804031 & ~1337351184) - (~3796804031 & 1337351184) : 3796804031 - 1337351184) >>> 0)) >>> 0;
-  }
-  erw = uTQ;
-}, function () {
-  if (~(~((SXA ^ 0) + (SXA & 0)) & ~1) * ~(~((SXA ^ 0) + (SXA & 0)) & ~1) % 2 !== 0) {
-    void 0;
-    uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & ~0);
-    SB6.push(SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1]);
-    return;
-  } else {
-    var _d = 0;
-    var _e = 1;
-    void ((_d | 0) === _d && (_e | 0) === _e ? 2 * (_d | _e) - (_d ^ _e) : _d + _e);
-  }
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & 0);
-  K1C[Sb4] = SB6.pop();
-  return;
-}, function () {
-  if (~(~SXA & ~0) * ((SXA ^ 0) + (SXA & 0)) % 4 === 3) {
-    var _d = 0;
-    void 0;
-  } else {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-    if (e1I && e1I.length > 0) {
-      var SpW = e1I[(e1I.length | 0) === e1I.length && (1 | 0) === 1 ? (e1I.length ^ 1) - 2 * (~e1I.length & 1) : e1I.length - 1];
-      if (SpW.yf8 >= 0) {
-        KTe = 1;
-        0, aJW = void 0;
-        e1I.pop();
-        SB6.length = SpW.y9y;
-        SXA = SpW.yf8 * 2;
-        return;
-      }
-    }
-    return KJE = void 0, ml0;
-    if (uTQ < erw) {
-      urq = ((urq | ((2542398627 | 0) === 2542398627 && (82945780 | 0) === 82945780 ? (2542398627 & ~82945780) - (~2542398627 & 82945780) : 2542398627 - 82945780) >>> 0) & ~(urq & ((2542398627 | 0) === 2542398627 && (82945780 | 0) === 82945780 ? (2542398627 & ~82945780) - (~2542398627 & 82945780) : 2542398627 - 82945780) >>> 0)) >>> 0;
-    }
-    0, erw = uTQ;
-  }
-}, function () {
-  void 0;
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-  yxa = Object.getPrototypeOf(yxa) || yxa;
-  return;
-}, function () {
-  if ((((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | 0) === ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) && ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | 0) === ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) ? ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | (~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) + (((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) & ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1))) : ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) + ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1))) % 2 !== 0) {
-    var _d = 0;
-    var _e = 1;
-    void ((_d | 0) === _d && (_e | 0) === _e ? 2 * (_d | _e) - (_d ^ _e) : _d + _e);
-  } else {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & 0);
-    var b = SB6.pop();
-    SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] | 0) === SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] && (b | 0) === b ? 2 * (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] | b) - (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] ^ b) : SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] + b;
-    return;
-  }
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-  SB6.push(K1C[Sb4]);
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-  SB6.push(true);
-  return;
-}, function () {
-  if ((~((SXA ^ 0) + (SXA & 0)) & ~(~SXA & ~0) | (SXA ^ 0) + (SXA & 0) & ~~(~SXA & ~0)) === 0) {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & 0);
-    var value = SB6.pop();
-    var Q50 = SB6[SB6.length - 1];
-    var UxE = adI[Sb4];
-    Q50[UxE] = value;
-    return;
-    if (uTQ < erw) {
-      urq = (~urq & ((176990957 | 2551508802) & ~(176990957 & 2551508802)) | urq & ~((176990957 | 2551508802) & ~(176990957 & 2551508802))) >>> 0;
-    }
-    erw = uTQ;
-  } else {
-    var _d = 0;
-    var _e = 1;
-    void ((_d | 0) === _d && (_e | 0) === _e ? 2 * (_d | _e) - (_d ^ _e) : _d + _e);
-  }
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & 0);
-  var UbC = adI[Sb4];
-  if (!qJq.call(yxa, UbC)) {
-    yxa[UbC] = void 0;
-  }
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & ~0);
-  var IXQ = SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1];
-  SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = SB6[(SB6.length | 0) === SB6.length && (2 | 0) === 2 ? (SB6.length & ~2) - (~SB6.length & 2) : SB6.length - 2];
-  SB6[(SB6.length | 0) === SB6.length && (2 | 0) === 2 ? (SB6.length ^ 2) - 2 * (~SB6.length & 2) : SB6.length - 2] = IXQ;
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-  var UbC = adI[Sb4];
-  var value = SB6.pop();
-  if (qJq.call(yxa, UbC)) {
-    yxa[UbC] = value;
-    return;
-  }
-  var QLk = Object.getPrototypeOf(yxa);
-  var EBI = false;
-  while (QLk) {
-    if (qJq.call(QLk, UbC)) {
-      QLk[UbC] = value;
-      EBI = true;
-      return;
-    }
-    QLk = Object.getPrototypeOf(QLk);
-  }
-  if (!EBI) {
-    yXQ[UbC] = value;
-  }
-  return;
-}, function () {
-  void 0;
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-  SB6.push({});
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-  SB6.push(Sb4 < ync.length ? ync[Sb4] : void 0);
-  return;
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = ~SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1];
-  return;
-}, function () {
-  if (((~(~SXA & ~0) | (SXA ^ 0) + (SXA & 0)) & ~(~(~SXA & ~0) & (SXA ^ 0) + (SXA & 0))) === 0) {
-    uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & ~0);
-    SB6.push(adI[Sb4]);
-    return;
-    SB6.push(K3i);
-    if (SB6.pop() !== K3i) {
-      urq = ((urq | ((1160460692 | 0) === 1160460692 && (328895948 | 0) === 328895948 ? (1160460692 & ~328895948) - (~1160460692 & 328895948) : 1160460692 - 328895948) >>> 0) & ~(urq & ((1160460692 | 0) === 1160460692 && (328895948 | 0) === 328895948 ? (1160460692 & ~328895948) - (~1160460692 & 328895948) : 1160460692 - 328895948) >>> 0)) >>> 0;
-    }
-  } else {
-    var _d = 0;
-    _d = (_d | 0) === _d && (1 | 0) === 1 ? (_d ^ 1) + 2 * (_d & 1) : _d + 1;
-  }
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & 0);
-  var b = SB6.pop();
-  SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] = ~(~SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] & ~b);
-  return;
-}, function () {
-  uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-  var yf2 = mli(adI[Sb4]);
-  if (yf2.a) {
-    SB6.push(function (u, cs, ct) {
-      if (u.s) {
-        return async function (...JK) {
-          return qlK(u, JK, cs, ct);
-        };
-      }
-      return function (...JK) {
-        return iLK(u, JK, cs, ct);
-      };
-    }(yf2, yxa, un2));
-  } else {
-    SB6.push(function (u, cs) {
-      if (u.s) {
-        var fn = async function (...JK) {
-          var Kb4 = this;
-          if (!u.st) {
-            if (Kb4 == null) {
-              Kb4 = globalThis;
-            } else {
-              var yFE = typeof Kb4;
-              if (yFE !== Olg(23) && yFE !== Olg(19)) {
-                Kb4 = Object(Kb4);
-              }
-            }
-          }
-          return qlK(u, JK, cs, Kb4, void 0, fn.uxy);
-        };
-        return fn;
-      }
-      var fn = function (...JK) {
-        var Kb4 = this;
-        if (!u.st) {
-          if (Kb4 == null) {
-            Kb4 = globalThis;
-          } else {
-            var yFE = typeof Kb4;
-            if (yFE !== Olg(23) && yFE !== Olg(19)) {
-              Kb4 = Object(Kb4);
-            }
-          }
-        }
-        return iLK(u, JK, cs, Kb4, void 0, fn.uxy);
-      };
-      return fn;
-    }(yf2, yxa));
-  }
-  return;
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ | 1) + (uTQ & 1) : uTQ + 1) & ~0);
-  e1I.pop();
-  return;
-}, function () {
-  if ((((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | 0) === ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) && ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | 0) === ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) ? 2 * ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) | (~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) - ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1) ^ ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1))) : ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1)) + ((~(~SXA & ~0) | 1) ^ (~(~SXA & ~0) ^ 1))) % 2 !== 0) {
-    var _d = 0;
-    void 0;
-  } else {
-    0, uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? (uTQ ^ 1) + 2 * (uTQ & 1) : uTQ + 1) & ~0);
-    var b = SB6.pop();
-    SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length & ~1) - (~SB6.length & 1) : SB6.length - 1] = (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] | 0) === SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] && (b | 0) === b ? (SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] & ~b) - (~SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] & b) : SB6[(SB6.length | 0) === SB6.length && (1 | 0) === 1 ? (SB6.length ^ 1) - 2 * (~SB6.length & 1) : SB6.length - 1] - b;
-    return;
-    if (uTQ < erw) {
-      urq = (~urq & ((449865781 | 2286431642) & ~(449865781 & 2286431642)) | urq & ~((449865781 | 2286431642) & ~(449865781 & 2286431642))) >>> 0;
-    }
-    0, erw = uTQ;
-  }
-}, function () {
-  if (~(~SXA & ~0) * ((SXA ^ 0) + (SXA & 0)) % 4 !== 2) {
-    uTQ = (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) ^ 0) + (((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & 0);
-    var UxE = SB6.pop();
-    SB6[SB6.length - 1] = SB6[SB6.length - 1][UxE];
-    return;
-    if (uTQ < erw) {
-      urq = (~urq & ((2506839319 | 0) === 2506839319 && (47386472 | 0) === 47386472 ? (2506839319 ^ 47386472) - 2 * (~2506839319 & 47386472) : 2506839319 - 47386472) >>> 0 | urq & ~(((2506839319 | 0) === 2506839319 && (47386472 | 0) === 47386472 ? (2506839319 ^ 47386472) - 2 * (~2506839319 & 47386472) : 2506839319 - 47386472) >>> 0)) >>> 0;
-    }
-    erw = uTQ;
-  } else {
-    var _d = 0;
-    _d = (_d | 0) === _d && (1 | 0) === 1 ? 2 * (_d | 1) - (_d ^ 1) : _d + 1;
-  }
-}, function () {
-  uTQ = ~(~((uTQ | 0) === uTQ && (1 | 0) === 1 ? 2 * (uTQ | 1) - (uTQ ^ 1) : uTQ + 1) & ~0);
-  var IBu = SB6.pop();
-  SB6[SB6.length - 1] = (SB6[SB6.length - 1] | 0) === SB6[SB6.length - 1] && (IBu | 0) === IBu ? (SB6[SB6.length - 1] | IBu) + (SB6[SB6.length - 1] & IBu) : SB6[SB6.length - 1] + IBu;
-  return;
-}];
-var vAx = 'kNBgGHNvVlSY1fUlfw4R6eMWmwvLfqcMEn0IuV1AX0jrRbqKad6cZTJW0E';
-var SB6 = void 0;
-var wpsv = '38u9TDRJyiSxh3o75n14$H8ABwOVyOlH8A6isNohzdnnuhzyrcNfkx_dylAlDwrZP4X3eBPi0_dsSSWBs6yAlcGeYADssZxmmvT9CIS2y$XAMtVAX6IdsiuESv1cAyCX1LieCqf1fUbmRUDnUbI1I9sNSDb_xQS_1MaIzG3cYRyyweIZWAZ1eVXOZslBXy21A7GG9dbsLMLLs1Y8S6BjkPku5hrWF9ONKMetrJDa_Y7y6xkSjTyn8QHqCCA_7BbtGGV1bGmQaLvHaGm7JSbz83PNWI6PcIJs4I$N3l4D4VPPhq2FE4BA89tWe37Us7Am1VmF3PMS2e8KMxnSZUy98GVH7nwSHW65Yqjna3TzP7nXHhxyfRlg61oKfdrPdQX$uLS86lnR2uEuY4H66lQET6epu_sIPYYhBAVuJu9hiqVI6t$e0mPB2geU9I0QtK6Xm_DyKs1lvK3Kk4tDWXmcNhz7151Lxru0vLlCdmgC$Tf9Aa8v30zGYQ3wPWAzvtswpc_$H1JU5wbbQEYa790JZ37b01_CRycYIPuXenjYw9OVjwwsE_iWXzV6mOg0IPF6ogPUqm2pHWE2rmUdzMqbxJxWllsn1RwNGkcUxiLuYuHT5jmgbj5VznzHzikoCCJMLzmTBNnB5H9kwmHV5S9LOOoz5OJNZncqk8ZIz9OEQbaMzt74FgDlzRdaiGHsCsdmHMt4s2mBCAOAWAudk6io1mG_dN9ev3hRxftTXc4dNRGI6AYHaTVi9OlH7V_ZwEAZihy5lXZxKotupldms4jhpNNQgXKJOpXyrywDleNKTGPxZMvOAAjaSK0AVrZ2zoSr9t29NaSKUwSNMDybdafQrZ8LRKtMUs2W3PC2vfoDw_3iiC71cG5qaOg3osnRanxzUl_TrpaYDuQ6Qqh8taM0asOogfajoaeZP2r$9pvYLkkcu2zkPSXZRgARg0j8$utuLAQzZnjwgmJ$uErxIrbgFUolcM5OjrBqFRUjRbEb_l$k7_$Mg5MyNYYLhNNCn$VrWLFbB6N2rLtzOn3lOMaZFfbn7qpuOw55BYIb96ARdyqGT9flqss8F1G$0wwI$eSY664$iBPVBlqGHahQBlvzD_5YGeieggfOyG1e_ur2rZRcrMsczNZfNcMuZX6VJG4lkwNWPvzuLT5tDzzAOiI2018f3uQFb1e9yJA$HM49YjsJiPF3h_7B09KNB53DuRoWN$ym6I9MaPkY6IvbX137hQZx9OFj$5gmGdBmDtJxZ5StvZo1eOpvgYw34R2J5t5qgfot08aNA_Yd4RC8e2VteVon$PtNdRy6_ue7us9OOigmpo_C_YPTSA5cnQNw7UWL_6YvR$qNUjrLoWDBw7zMQSZ8zLHlgP0BJp5_4tZwV536mkVBEIZ5HU6cmb8_08$F$jLdJiqQLllNSiPYiYtSfCjJWBcRX69QM7NttMA$$gEh_62KsclH6OX2KW4izSapnexJWKMs8j36Jus3H7CLQwb0jJb18qKOJ6E2RZrsmf18LHKTPC4Ea5J5awLg8dkHWoBTgnfqbn48FkO8hGT9y2Fe8Ea_T1IPz7100NLHe1BZn5kyyV0FuVRCEoZG4i3KJ8g79G1YyLw0rEEWTmmo4zRztZjkdHhR2qCB61kh$bwNSv3Ywprq7sNg2Q$2Z27hJ6qyZu_XaA$_JAwId07D0a91iS_KTWQapoe$vQ0808KlII7kdGrRdVinysbrSll$usd7_K1ofjxRBcgvpiO1Eyal_HqgFj75gz1r1x5_JHB4wrATsq5QVPaon7CNtCXa7IVLL97rxFQTwjenyXDuWL_CfhJKPd28iu5kVE_meEnYnRpD0dXEyxnmgSw43ED$XV2$VK0ImENiABbs1dGedEDzZ0tN60_vzj7YPkrdh1BcudO9b11G4zsV8EYgvE882F62HRn8Yizq$bVgd_7hBzEZ$sxYaCbHP675AnXOaPVRnLEceH381j5sTWLRDzEzbwltbG6Q$eHgZUeldridH$G_VUqXGC$xkoo_76QGFylkKaEV$5ohFLtgaDVWDNkgccL914splXffXRTP$nKi5Cf2$NFj2PMVQbbUN98rkH1Ru6gPv4O0l8tqQuP6KM6WVkvPdsQFw_hU9Y6sEBpMCIDTd3kO1QwpwsNIUeCmjD$eBfRVlRHVrBZujzA2x6zLI02pIVfzQbWOWCwmTomlX9cCIveoWuY3c45J8GGJx_VWXdYEXKil8KVlw8$mcp73iOPY2tfarooT3N$Zs65VGll$jGS4FIJKt5_SX4LBR_QkUFu913N1xXKDDYKeeJ_GGM4TXxeDMWhmaXIawOUf_F_xUrRUzH8ZtsNwEPI59b3mZ_WWlYQF8x_DSvkvnEUF81mUf5eS4qplSfZYLBvc9hon$oGPuxPvhhsnfKqS$rFWfCFxrM2LjVZUqMJSwwKCd$wNW95wRcOdfA2PNTw6spxJMfhprunTNMo8Z96A8QM4mSBl0xUS$4Kdx1YfDJHLRFb7VSpNVrNK02H8BrTQF6EizwznPZXkzX1ymw7UJkKhinMRCKrmMvrqyWopUJI0eIaQ9f1zsw1zKuInQwZ5D0Y9XglY0HlU_4dkAYmHePpvJEOC0j7nvVDPaNwExS9XcqwU68mqeEv2drzqKQJN1JcDoLwZKjRXyl6ONybr0gt$e5OYfqtj_vRelidLqDdzzcGIlq3XPIg6MLj9SCN$CE7qorcaWEV7sPB28LgHu7aJemV6iKXezL0K0rDPcf3LffNzUa6DsjirGfAhzZVURgG86fW8BMXZooobtRQ4XjlwkVX1dYUQQ6KNj2FlfV2ePUAYP30VdjHzl$cy2vi$faqOXii66p5$EN76wD83JLR1egiZNs$LhNunR08oe0WBucvLePxSBbYkmieMjdtv2YW6dJS4Xoa0gbDhWfRgO4UhMLa7IXwIRofw91DQuUGl5QPnMnfhKU5t0g7VzZf1u_TzLijjKlc7Gta$FiLuUkePscftrESlCbx3Jokb$RlYrLvOkzW4sHQwwBIgQsnMm_OPcb77PPx5li_Xb$fFTXmgEWm3R5xwLRKreryaexVwmAlmK_QDV8K7z0n4woDqXHlHIUcyl9o8N1hp0SOugPp$aNqLNp9oXmstEWcEz6QsGoxjLzJ6I1LI28ytg3DwoB_HjzdNVmFjwj5MqAslDuu4_mjdA4VqQUrgzP58pAFcd_T$aUAOP3k6tnkdt4CufxR_aPCSmzj8CMQf$zn6aihxv3GAMKjS9G7lHfWLiUyalGPBF_Pg4VqzGD7WTbaEz_J$Z$zC1HyLqTWFhi6$S6Z3CJqaf_6DX7suFq__wqIvipH74YI$yKjBV00sKGOD8Q2L0';
-var X2N = '38u9TDRgy4Xxh3o75n8aZA4jMzhVycDkPmxCSSsWPVXD$Wz3z7';
-var HGZ = '38u9TXRky4Cxh3o75n8S_2';
-var K1C = void 0;
-var SXA = void 0;
-var LU1 = 'EE5aLLna_P_dKQqh$NXdRWno5UE8NFSfgg5HTCiKIVTVsdI_GlE0WX_4H7wOfX$Hk1$nwx';
-var adI = void 0;
-var Sb4 = void 0;
-var yxa = void 0;
-var r4V = [859338041, 1415074411, 2033465464, 1748201271, 896415858, 829642086, 1835754326, 1178694755, 1400009078, 1985051221, 1902533220, 1180058211, 1434014274, 1931753273, 1667844679, 826366547, 959804484];
-var TaN = [1635271474, 930044279, 863519821, 1717645364, 1701799545, 930690670, 1648976179, 1215262793, 2003269466, 1245203834, 862869609];
-var DAP = 'fpdUYA0eR4_t1cSaW5bG1$U4iVdV';
-var v2B = 'rZuWuNTGxOLm2052KEDfNwLHgcopo7DzGxcunBwpiDnXRkjYeYWcTxLWqeRS9RRazQMlEQDK_gpc1FmZYAlGGmC';
-var e1I = void 0;
-var vC7 = 'sSlAraQFToLewKl$8YI9Q7hWAxjYEWUfRNlV6G3M$0JEcc$PAdJ9mI7';
-var TcP = 'P8Fuyp3uC_54KFYUOQtOvVrWuw2KAf8b0dEjMVITv0vHbD077L0VvXjWFPL4iT9llnXJlQCNbRne5ofy7y6VbIa3vopIwgwZJ8ryvq2E$mdWG';
-var azi = void 0;
-var HW9 = 'zZfUJNRZcFYLuTpgnxlCfdlYyMeqjIuHVbQ1HOLYf';
-var eJY = void 0;
-var KTe = void 0;
-var aJW = void 0;
-var CDE = void 0;
-var ync = void 0;
-var un2 = void 0;
-var GFI = void 0;
-var aZc = void 0;
-var HIf = 'uqzMXNu1yZ7vzVLA7el2agfpdUYA0eR4_t';
-var bwf = '38Y9TXRuy_Gxh3o7IVQ8qWl6JQkU1REjWQgBwQuGWTrP1RLW$2wYhUJCInsAVyddkCRNWl$FQOrS4$PG2c_MdNRkB30b3IvF24DPDA$29rXcDr8Ib_u7JMSlQa1hmhMxCKg37Qj7469PJjeUtft46VtUbUh8dXrA7TOhQo_r7LbdkBiZtSfagLK4dbxQLd44RyDF0WeAF0DfrlmFyvCm15fFDtg$5q2s054Mf0zwX5pTiMk5jONy6oOVgbk_0ZtpHzm4jKTC3URJu_0jODG30vhskJsOqt$vtvNSIuYXuYbY_otP3NX8lDcmDHowBmg5Qxjc1PIbGeSvbF9eDhDsmErNNffPOW6hYQFdmu8oTr0aNekrI0gLrcv9VssN_8iy1Y9TASD5oE5e7jpwww3pVhA1JX1PZpBsR5DNVy1jRvP4wpkHnphr$YbKjnD9aq$Cc8PGjuLo3gku7F03Dik4Er8O2fWZsWtrrx8oT1j5eYgNaybzlPdMtzMRN47SByHwfmn2zECYwbtMfmMM1sRmc7QZj5IdYYy1l5oylnMBFULIh00ldcNuuv4Hbe_Ho1qfg6eR71yv9Yy$Q$KwcnI6G7pPfqmhVUWkZxZvTwXa7';
-var yXQ = void 0;
-yD6 = (yD6 ^ (1385763585 ^ 1927634500)) >>> 0;
-function yv0(u) {
-  var h = 4192997502 ^ 275386587 ^ 1754963296;
-  h = y7S(h ^ u.i.length >>> 1, 1205883391 - 1189105772 >>> 0);
-  h = y7S(h ^ u.r, 1205883391 - 1189105772 >>> 0);
-  h = y7S(h ^ u.p, 1205883391 - 1189105772 >>> 0);
-  h = y7S(h ^ u.c.length, 1205883391 - 1189105772 >>> 0);
-  h = y7S(h ^ (2555116997 ^ 537403524), 1205883391 - 1189105772 >>> 0);
-  h ^= h >>> 16;
-  h = y7S(h, 201454491 - 128210016 >>> 0);
-  h ^= h >>> 13;
-  var k = h >>> 0;
-  k = (k ^ yD6) >>> 0;
-  return k;
-}
-function KrA(s, a, b) {
-  var h = s;
-  h = y7S(h ^ a, 1981701266 ^ 1455782975 ^ 2771446470) >>> 0;
-  h = y7S(h ^ b, 1595790025 ^ 2645523708) >>> 0;
-  h ^= h >>> 16;
-  return h >>> 0;
-}
-function ORQ(mk, bid) {
-  var h = mk;
-  h = y7S(h ^ bid, 160415527 - 143637908 >>> 0) >>> 0;
-  h = y7S(h ^ y7S(bid, 3669327846 ^ 4105735139 ^ 2956627388) >>> 0, 638719501 ^ 2751061094) >>> 0;
-  h ^= h >>> 16;
-  h = y7S(h, 3390762557 - 124272648 >>> 0) >>> 0;
-  h ^= h >>> 13;
-  return h >>> 0;
-}
-function iPW(s, op, od) {
-  var h = s;
-  h = y7S(h ^ op, 3689238138 ^ 3875890119 ^ 3104565206) >>> 0;
-  h = y7S(h ^ od, 1849854865 ^ 2901419428) >>> 0;
-  h ^= h >>> 16;
-  return h >>> 0;
-}
-function iLK(Qlc, QvO, ERq, IPy, kPA, cn6) {
-  exI++;
-  var EZU = [SB6, K1C, SXA, adI, Sb4, yxa, e1I, azi, eJY, KTe, aJW, CDE, ync, un2, GFI, aZc, yXQ];
-  CDE = Qlc;
-  ync = QvO;
-  un2 = IPy;
-  GFI = kPA;
-  aZc = cn6;
-  if (exI > 500) {
-    exI--;
-    SB6 = EZU[0];
-    K1C = EZU[1];
-    SXA = EZU[2];
-    adI = EZU[3];
-    Sb4 = EZU[4];
-    yxa = EZU[5];
-    e1I = EZU[6];
-    azi = EZU[7];
-    eJY = EZU[8];
-    KTe = EZU[9];
-    aJW = EZU[10];
-    CDE = EZU[11];
-    ync = EZU[12];
-    un2 = EZU[13];
-    GFI = EZU[14];
-    aZc = EZU[15];
-    yXQ = EZU[16];
-    throw new RangeError(Olg(15) + 's' + Olg(25));
-  }
-  try {
-    SB6 = [];
-    K1C = [];
-    for (var _rl = CDE.r; _rl > 0; _rl--) {
-      K1C.push(void 0);
-    }
-    SXA = 0;
-    adI = CDE.c;
-    var ORC = CDE.i;
-    e1I = null;
-    azi = null;
-    eJY = false;
-    KTe = 0;
-    aJW = void 0;
-    yxa = Object.create(ERq);
-    yXQ = WfA;
-    var urq = yv0(CDE);
-    var K36 = ORQ(urq, 0);
-    var CNA = (CDE.i.length ^ CDE.r ^ (2202578882 ^ 1861222447 ^ 3078895884)) >>> 0;
-    var CPw = [];
-    SB6 = new Proxy(CPw, {
-      set: function (_, k, v) {
-        var i = +k;
-        if (i === i && i >= 0) {
-          var t = typeof v;
-          if (t === Olg(22) && (v | 0) === v) {
-            CPw[i] = [0, v ^ (CNA ^ i * (119090233 ^ 2569950592)) >>> 0];
-          } else {
-            if (t === Olg(17)) {
-              CPw[i] = [1, v ? 1 : 0];
-            } else {
-              if (t === Olg(24)) {
-                CPw[i] = [2, v];
-              } else {
-                CPw[i] = [3, v];
-              }
-            }
-          }
-        } else {
-          CPw[k] = v;
-        }
-        return true;
-      },
-      get: function (_, k) {
-        var i = +k;
-        if (i === i && i >= 0) {
-          var e = CPw[i];
-          if (!e) {
-            return void 0;
-          }
-          if (e[0] === 0) {
-            return e[1] ^ (CNA ^ i * (270361085 - 1910892612 >>> 0)) >>> 0;
-          }
-          if (e[0] === 1) {
-            return !!e[1];
-          }
-          return e[1];
-        }
-        if (k === Olg(21)) {
-          return CPw.length;
-        }
-        return CPw[k];
-      }
+    };
+
+    // UI
+    const panel = document.createElement("div");
+
+    panel.innerHTML = `
+        <div id="ew-header">
+            <span>EvoWars Script Selector</span>
+            <button id="ew-close">×</button>
+        </div>
+
+        <div id="ew-content">
+            <div class="ew-desc">Select a script to load</div>
+
+            <button class="ew-option" data-script="killer">
+                <span>KILLER Hub</span>
+                <small>Auto Attack / ESP / Automation</small>
+            </button>
+
+            <button class="ew-option" data-script="v14">
+                <span>EvoWars v14.5</span>
+                <small>KOAX Atomic Strike</small>
+            </button>
+
+            <div id="ew-status">Waiting for selection...</div>
+        </div>
+    `;
+
+    Object.assign(panel.style, {
+        position: "fixed",
+        top: "100px",
+        right: "20px",
+        width: "260px",
+        background: "#151515",
+        color: "#fff",
+        border: "1px solid #333",
+        borderRadius: "12px",
+        fontFamily: "Arial, sans-serif",
+        zIndex: "999999",
+        boxShadow: "0 8px 30px #0008",
+        overflow: "hidden"
     });
-    var mHQ = ORC.length;
-    for (;;) {
-      try {
-        while (SXA < mHQ) {
-          var m1I = ORC[SXA];
-          Sb4 = ORC[SXA + 1];
-          SXA += 2;
-          var edU = SXA - 2 >>> 1;
-          if ((edU & 255) === 0) {
-            urq = (urq ^ GTE()) >>> 0;
-            urq = (urq ^ (!(ihs instanceof WeakMap) || ihs.get(WXQ) !== true ? 2188307990 ^ 3461011155 ^ 33292265 : 0)) >>> 0;
-          }
-          if (CDE.bl[edU] !== void 0) {
-            K36 = ORQ(urq, CDE.bl[edU]);
-          }
-          m1I = (m1I ^ K36 & 65535) & 65535;
-          Sb4 = Sb4 ^ K36 | 0;
-          K36 = iPW(K36, m1I, Sb4);
-          var eXQ = urq;
-          eXQ = y7S(eXQ ^ edU, 1326698109 ^ 3405251606) >>> 0;
-          eXQ = y7S(eXQ ^ (edU ^ 3978475377 - 1324039608 >>> 0), 4077520810 ^ 4293944759 ^ 3460877352) >>> 0;
-          eXQ = eXQ ^ eXQ >>> 16;
-          eXQ = eXQ >>> 0;
-          m1I = (m1I ^ eXQ & 65535) & 65535;
-          Sb4 = Sb4 ^ eXQ | 0;
-          var m1c = KpG[m1I];
-          if (evS[m1c]() === ml0) {
-            return KJE;
-          }
+
+    const style = document.createElement("style");
+    style.textContent = `
+        #ew-header {
+            padding: 13px;
+            background: #202020;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
         }
-        return void 0;
-      } catch (e) {
-        eJY = false;
-        azi = null;
-        KTe = 0;
-        aJW = void 0;
-        if (e1I && e1I.length > 0) {
-          var SpW = e1I.pop();
-          if (SpW.qVS >= 0) {
-            SB6.length = SpW.y9y;
-            SB6.push(e);
-            SXA = SpW.qVS * 2;
-            continue;
-          }
-          if (SpW.yf8 >= 0) {
-            SB6.length = SpW.y9y;
-            azi = e;
-            eJY = true;
-            SXA = SpW.yf8 * 2;
-            continue;
-          }
+
+        #ew-close {
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
         }
-        throw e;
-      }
+
+        #ew-content {
+            padding: 13px;
+        }
+
+        .ew-desc {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .ew-option {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 9px;
+            background: #252525;
+            color: white;
+            border: 1px solid #393939;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .ew-option:hover {
+            background: #303030;
+            border-color: #7ce4c5;
+        }
+
+        .ew-option span {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .ew-option small {
+            display: block;
+            color: #999;
+            margin-top: 5px;
+            font-size: 11px;
+        }
+
+        #ew-status {
+            color: #7ce4c5;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+    `;
+
+    document.head.appendChild(style);
+    document.body.appendChild(panel);
+
+    const status = panel.querySelector("#ew-status");
+    const buttons = panel.querySelectorAll(".ew-option");
+
+    let loaded = false;
+
+    function loadScript(key) {
+        if (loaded) return;
+
+        const selected = scripts[key];
+        if (!selected) return;
+
+        if (!confirm(`Load ${selected.name}?`)) return;
+
+        status.textContent = "Downloading...";
+        buttons.forEach(btn => btn.disabled = true);
+
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: selected.url,
+
+            onload(response) {
+                if (response.status !== 200) {
+                    status.textContent = "Download failed: " + response.status;
+                    buttons.forEach(btn => btn.disabled = false);
+                    return;
+                }
+
+                try {
+                    const script = document.createElement("script");
+                    script.textContent = response.responseText;
+
+                    document.documentElement.appendChild(script);
+                    script.remove();
+
+                    loaded = true;
+                    status.textContent = selected.name + " loaded!";
+                } catch (error) {
+                    status.textContent = "Execution failed!";
+                    buttons.forEach(btn => btn.disabled = false);
+                    console.error(error);
+                }
+            },
+
+            onerror() {
+                status.textContent = "Network error!";
+                buttons.forEach(btn => btn.disabled = false);
+            }
+        });
     }
-  } finally {
-    exI--;
-    SB6 = EZU[0];
-    K1C = EZU[1];
-    SXA = EZU[2];
-    adI = EZU[3];
-    Sb4 = EZU[4];
-    yxa = EZU[5];
-    e1I = EZU[6];
-    azi = EZU[7];
-    eJY = EZU[8];
-    KTe = EZU[9];
-    aJW = EZU[10];
-    CDE = EZU[11];
-    ync = EZU[12];
-    un2 = EZU[13];
-    GFI = EZU[14];
-    aZc = EZU[15];
-    yXQ = EZU[16];
-  }
-}
-var qlK = iLK;
-function W3E(id, ync, ifo, un2, GFI, aZc) {
-  var CDE = mli(id);
-  if (un2 !== void 0 && !(CDE.a || CDE.st)) {
-    if (un2 == null) {
-      un2 = globalThis;
-    } else {
-      var eHI = typeof un2;
-      if (eHI !== Olg(23) && eHI !== Olg(19)) {
-        un2 = Object(un2);
-      }
-    }
-  }
-  if (CDE.s) {
-    return qlK(CDE, ync || [], ifo || null, un2, GFI, aZc);
-  }
-  return iLK(CDE, ync || [], ifo || null, un2, GFI, aZc);
-}
-W3E.call = function (un2, id, ync, ifo, aZc) {
-  var CDE = mli(id);
-  if (!(CDE.a || CDE.st)) {
-    if (un2 == null) {
-      un2 = globalThis;
-    } else {
-      var eHI = typeof un2;
-      if (eHI !== Olg(23) && eHI !== Olg(19)) {
-        un2 = Object(un2);
-      }
-    }
-  }
-  if (CDE.s) {
-    return qlK(CDE, ync || [], ifo || null, un2, void 0, aZc);
-  }
-  return iLK(CDE, ync || [], ifo || null, un2, void 0, aZc);
-};
-function aJ4(mk, b, x) {
-  var k = (mk ^ x * (416041333 - 2056572860 >>> 0)) >>> 0;
-  var _ca = [];
-  for (var i = 0; i < b.length; i++) {
-    k = k * (2203376718 ^ 2317248491 ^ 156491176) + (992163669 ^ 122536970) >>> 0;
-    _ca.push(b[i] ^ k & 65535);
-  }
-  return String.fromCharCode.apply(null, _ca);
-}
-function mli(id) {
-  if (WNk[id]) {
-    return WNk[id];
-  }
-  var raw = ezm[id];
-  var bytes = ez4(raw);
-  var key = ylc().toString(16);
-  bytes = uDi(bytes, key);
-  var eu = SrM(bytes);
-  for (var j = 0; j < eu.c.length; j++) {
-    var cv = eu.c[j];
-    if (Array.isArray(cv)) {
-      eu.c[j] = aJ4(yv0(eu), cv, j);
-    }
-  }
-  WNk[id] = eu;
-  return WNk[id];
-}
-var qtuh = KrA;
-var x2X = W3E;
-var JUh = ez4;
-var tSP = ORQ;
-var tYT = iPW;
-function GTE() {
-  var c = 0;
-  if (qtuh !== KrA) {
-    c = (c ^ 1391904288 - 747741360 >>> 0) >>> 0;
-  }
-  if (x2X !== W3E) {
-    c = (c ^ (2142403938 ^ 3070901327 ^ 4024264238)) >>> 0;
-  }
-  if (JUh !== ez4) {
-    c = (c ^ (352738649 ^ 1029928399)) >>> 0;
-  }
-  if (tSP !== ORQ) {
-    c = (c ^ 2651410701 - 1956914916 >>> 0) >>> 0;
-  }
-  if (tYT !== iPW) {
-    c = (c ^ (3280455094 ^ 3699885299 ^ 895822585)) >>> 0;
-  }
-  return c;
-}
-var uTQ = 0;
-var erw = 0;
-var WXQ = Object.create(null);
-var ihs = new WeakMap();
-ihs.set(WXQ, true);
-var exI = 0;
-var eFs = [];
-var WNk = {};
-var yLA = {};
-yLA[Olg(7)] = W3E;
-yLA[Olg(4)] = W3E;
-yLA[Olg(1)] = W3E;
-yLA[Olg(20)] = W3E;
-yLA[Olg(3)] = W3E;
-yLA[Olg(27)] = W3E;
-yLA[Olg(9)] = W3E;
-yLA[Olg(8)] = W3E;
-yLA[Olg(6)] = W3E;
-yLA[Olg(5)] = W3E;
-yLA[Olg(2)] = W3E;
-function eRK(id, aX2, mPm, SrQ, ylO, ano) {
-  return yLA[id](id, aX2, mPm, SrQ, ylO, ano);
-}
-eRK.call = function (SrQ, id, aX2, mPm, ano) {
-  return yLA[id].call(SrQ, id, aX2, mPm, ano);
-};
-ezm['1rejc'] = wpsv + rSJ;
-if (typeof globalThis !== Olg(26)) {
-  globalThis.eRK = eRK;
-} else {
-  if (typeof window !== Olg(26)) {
-    window.eRK = eRK;
-  } else {
-    if (typeof global !== Olg(26)) {
-      global.eRK = eRK;
-    } else {
-      if (typeof self !== Olg(26)) {
-        self.eRK = eRK;
-      }
-    }
-  }
-}
-ezm['1hl6l'] = vGz + nmd + y34(TaN);
-;
-ezm['13b8m'] = HGZ + ncJ + HIf + zod + jSP + fGz;
-ezm['j1vsv'] = Hoh + b4L + bgD + bIj + z0N + jYD;
-ezm['1aueb'] = bwf + XYX;
-ezm['z2cao'] = DgP + vqZ + DAP + HW9 + vGL;
-ezm['1t5wa'] = y34(TOr) + HuZ + vC7 + v2B;
-ezm['1t2ly'] = y34(niD) + H4b + T2r + L45 + vwf + Xav;
-ezm['1o8r0'] = X2l + TcP;
-ezm['1npel'] = y34(r4V) + LU1 + vAx + T6j;
-ezm['16hzf'] = X2N + fAL + y34(XKX);
-var ilw = Object.create(null);
-((...__args) => {
-  return eRK("1rejc", __args, ilw);
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            loadScript(button.dataset.script);
+        });
+    });
+
+    panel.querySelector("#ew-close").onclick = () => {
+        panel.remove();
+        style.remove();
+    };
 })();
